@@ -63,10 +63,11 @@ group :development do
   gem "web-console"
 end
 
-# group :production do
-#   # Use console on exceptions pages [https://github.com/rails/web-console]
-#   gem "pg"
-# end
+group :production do
+  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "pg"
+  gem "sqlite3", ">= 1.4"
+end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
