@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   
   root to: "landing#welcome"
 
-  # User authentication
+  #user authentication
   get "/signup", to: "users#new", as: "new_user"
   post "/users", to: "users#create"
   delete "/users", to: "users#destroy", as: "destroy_user"
 
-  # Sessions
+  #sessions
   get "/login", to: "sessions#new", as: "login"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy", as: "logout"
@@ -17,17 +17,17 @@ Rails.application.routes.draw do
 
   resources :todos do
     member do
-      patch :complete  # This will create complete_todo_path
+      patch :complete  #this will create complete_todo_path
     end
     collection do
-      get "completed"  # This will create completed_todos_path
+      get "completed"  #this will create completed_todos_path
     end
   end
   
   resources :users, only: [:new, :create] do
     collection do
-      get 'profile', to: 'users#profile'          # profile_users_path
-      delete 'destroy_account', to: 'users#destroy_account'  # destroy_account_users_path
+      get 'profile', to: 'users#profile'          #profile_users_path
+      delete 'destroy_account', to: 'users#destroy_account'  #destroy_account_users_path
     end
   end
   resources :categories
